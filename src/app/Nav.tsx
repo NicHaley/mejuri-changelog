@@ -10,7 +10,9 @@ const Nav = ({ hideBackground = false }) => (
   <header
     className={classNames(
       "fixed inset-x-0 top-0 z-50",
-      hideBackground ? undefined : "backdrop-blur-2xl bg-zinc-900/80"
+      hideBackground
+        ? undefined
+        : "backdrop-blur-2xl bg-white/80 dark:bg-zinc-900/80"
     )}
   >
     <nav
@@ -30,10 +32,13 @@ const Nav = ({ hideBackground = false }) => (
         </Link>
 
         <div className="flex gap-4">
-          <Link href="/blog" className="text-sm text-white">
+          <Link href="/blog" className="text-sm dark:text-white text-black">
             Blog
           </Link>
-          <Link href="/changelog" className="text-sm text-white">
+          <Link
+            href="/changelog"
+            className="text-sm dark:text-white text-black"
+          >
             Changelog
           </Link>
         </div>

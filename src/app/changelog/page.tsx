@@ -24,12 +24,16 @@ export default async function ChangelogListPage() {
 
   const renderChangelogOrChangelogs = () => {
     if (changelogOrChangelogs?.isNode) {
-      return <Changelog changelog={changelogOrChangelogs.data as RenderedPostContent} />;
+      return (
+        <Changelog
+          changelog={changelogOrChangelogs.data as RenderedPostContent}
+        />
+      );
     }
 
-    return (changelogOrChangelogs?.data as RenderedPostContent[]).map((changelog) => (
-      <Changelog changelog={changelog} key={changelog.slug} />
-    ));
+    return (changelogOrChangelogs?.data as RenderedPostContent[]).map(
+      (changelog) => <Changelog changelog={changelog} key={changelog.slug} />
+    );
   };
 
   return (
@@ -47,7 +51,7 @@ export default async function ChangelogListPage() {
             </div>
           </div>
         </section>
-        <section className="w-full pt-16 mt-12 prose border-t dark:prose-invert md:pt-0 md:mt-0 border-zinc-700 md:border-0">
+        <section className="w-full pt-16 mt-12 prose border-t dark:prose-invert md:pt-0 md:mt-0 border-zinc-200 dark:border-zinc-700 md:border-0">
           {renderChangelogOrChangelogs()}
         </section>
       </div>
